@@ -99,7 +99,7 @@ app.use('/users', userRoutes);
 //     const { statusCode = 500, message = "something went wrong" } = err;
 //     res.status(statusCode).render('errors/default', { err });
 // })
-
-app.listen(3000, () => {
-    console.log('express-auth-done-at-8080');
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`express-auth-done-at-${port}`);
 })
