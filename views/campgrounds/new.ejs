@@ -1,0 +1,71 @@
+<% layout('layouts/boilerplate') %>
+    <section class="row">
+        <h1 class="text-center">Add Your own Campground</h1>
+        <form action="/campgrounds/new?_method=POST" method="POST" class="mb-3 col-6 offset-3 needs-validation new-form"
+            novalidate enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control " name="title" id="title" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter a valid title
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="desc" class="form-label">Description</label>
+                <input type="text" class="form-control" name="description" id="desc" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter a valid description
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="location" class="form-label">Location</label>
+                <input type="text" name="location" class="form-control" id="location" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter a valid location
+                </div>
+            </div>
+            <label for="price" class="form-label">Price</label>
+            <div class="mb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">$</span>
+                    </div>
+                    <input type="text" class="form-control" name="price" id="price" class="form-label" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter a valid price
+                    </div>
+                </div>
+                <div class="invalid d-none" id="live-num-validator">
+                    Price Must be a number
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile" name="image" multiple>
+                    <label class="custom-file-label" for="customFile">Add images</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success" class="mb-3" id="new-save">Save</button>
+        </form>
+    </section>
+    <a href="/campgrounds">Go To home</a>
+
+    <script>
+        const active = document.querySelector('.active');
+        active.classList.toggle('active');
+        const newCamp = document.querySelector('.new-camp');
+        newCamp.classList.toggle('active');
+    </script>
+    <script src="/js/numericVerification.js"></script>

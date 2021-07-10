@@ -1,0 +1,14 @@
+<%- layout('layouts/boilerplate') %>
+    <div class="alert alert-danger" role="alert">
+        <h1 class="text-center">Error<%=err.statusCode%>
+        </h1>
+        <h2 class="text-center mb-3">Couldn't find the page,you requested for :( </h2>
+        <h3>Try these if you are lost</h3>
+        <ul>
+            <li>Don't Manipulate the URL from search bar</li>
+            <li>try to navigate to the homepage and use internal links</li>
+        </ul>
+        <h4>
+            <%= err.message%>
+        </h4>
+    </div>

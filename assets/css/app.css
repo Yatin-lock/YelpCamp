@@ -1,0 +1,24 @@
+.footer{
+    color: white;
+}
+.campground-img{
+    height: 450px;
+}
+.index-campground-img{
+    width: 300px;
+    height: 200px;
+}
+.review-update{
+    display: none;
+}
+
+.review-form{
+    display: none;
+}
+.active{
+    border-bottom: solid 2px white;
+}
+
+.invalid{
+    color: red;
+}

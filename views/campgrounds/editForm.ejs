@@ -1,0 +1,78 @@
+<% layout('layouts/boilerplate') %>
+    <section class="row">
+        <h1 class="text-center">Update Form for : <%=camp.title%>
+        </h1>
+        <form action="/campgrounds/<%=camp._id%>?_method=PUT" method="POST" class="mb-3 col-6 offset-3 needs-validation"
+            novalidate enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="title" class="form-label">Update Title</label>
+                <input type="text" class="form-control" name="title" id="title" value="<%=camp.title%>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter a valid title
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="desc" class="form-label">Update Description</label>
+                <input type="text" class="form-control" name="description" id="desc" value="<%=camp.description%>"
+                    required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter a valid title
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="location" class="form-label">Update Location</label>
+                <input type="text" name="location" class="form-control" id="location" value="<%=camp.location%>"
+                    required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter a valid title
+                </div>
+            </div>
+            <label for="price" class="form-label">Update Price</label>
+            <div class="mb-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">$</span>
+                </div>
+                <input type="text" class="form-control" name="price" id="price" value="<%=camp.price?camp.price:'0'%>"
+                    class="form-label" required>
+                <div class="invalid-feedback">
+                    Please enter a valid title
+                </div>
+                <div class="invalid-feedback">
+                    Please enter a valid title
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile" name="image" multiple>
+                    <label class="custom-file-label" for="customFile">Add images</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <% camp.images.forEach((img,i)=> {%>
+                    <img src="<%= img.thumbnail %> " class="img-thumbnail">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="deletedImage-<%=i%>"
+                            name="deletedImages[]" value="<%=img.filename%>">
+                        <label class="custom-control-label" for="deletedImage-<%=i%>">Delete this image?</label>
+                    </div>
+                    <% }); %>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-success">Update</button>
+            </div>
+            <a href="/campgrounds/<%=camp._id%>">Cancel</a>
+        </form>
+
+    </section>
+    <script>
+    </script>
+    <script src="/js/numericVerification.js"></script>    
