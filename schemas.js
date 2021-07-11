@@ -1,4 +1,4 @@
-const sanitizeHtml = require('express-mongo-sanitize');
+const sanitizeHtml = require('sanitize-html');
 const BaseJoi = require('joi');
 
 const extension = joi =>({
