@@ -90,15 +90,15 @@ app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/reviews', reviewRoutes);
 app.use('/users', userRoutes);
 
-// app.all('*', (req, res, next) => {
-//     next(new ExpressError('page not found', 404));
-// })
+app.all('*', (req, res, next) => {
+    next(new ExpressError('page not found', 404));
+})
 
-// app.use((err, req, res, next) => {
-//     console.log(err);
-//     const { statusCode = 500, message = "something went wrong" } = err;
-//     res.status(statusCode).render('errors/default', { err });
-// })
+app.use((err, req, res, next) => {
+    console.log(err);
+    const { statusCode = 500, message = "something went wrong" } = err;
+    res.status(statusCode).render('errors/default', { err });
+})
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`express-auth-done-at-${port}`);

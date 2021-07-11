@@ -16,8 +16,8 @@ const extension = joi =>({
                 });
                 if(clean!=value){
                     return helpers.error('string.escapeHtml',{value});
-                    return clean;
                 }
+                return clean;
             }
         }
     }
