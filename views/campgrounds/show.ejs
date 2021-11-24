@@ -1,7 +1,8 @@
 <% layout('layouts/boilerplate') %>
+<link rel="stylesheet" href="/css/showpage.css">
     <link rel="stylesheet" href="/css/starRatings.css">
     <section class="row mb-3">
-        <div class="col-6 offset-1 card">
+        <div class="col-md-6 offset-1 card">
             <div>
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
@@ -59,7 +60,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div id='map' style='width: 400px; height: 300px;'></div>
+            <div id='map'></div>
             <%if(currentUser){%>
                 <h2 class="my-2">Leave a review</h2>
                 <form action="/campgrounds/<%=campground.id%>/reviews" method="post" class="needs-validation"
